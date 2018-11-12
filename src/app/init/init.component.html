@@ -1,0 +1,27 @@
+<ActionBar title="Traveller" class="action-bar">
+    <StackLayout orientation="horizontal">
+        <Label text="TRAVELLER &#xf0ac;" class="title font-awesome"></Label>
+    </StackLayout>
+</ActionBar>
+
+<GridLayout rows="*, 60" columns="*, *, *, *, *, *" class="page">
+
+    <ListView row="0" col="1" colSpan="4" [items]="players" separatorColor="transparent" class="list-player">
+        <ng-template let-player="item" let-i="index">
+            <GridLayout rows="*" columns="*, * , * , * , * ,*">
+                <Label [text]="'P'+(i+1)" class="label label-player list-large-item" row="0" col="1" colSpan="1"
+                    verticalAlignment="center" horizontalAlignment="right" textTransform="uppercase"></Label>
+                <TextView row="0" col="2" colSpan="3" class="input list-large-item" hint="NAME" [(ngModel)]="player.name"
+                    secure="false" keyboardType="url" returnKeyType="next" autocorrect="false" maxLength="10"
+                    verticalAlignment="center" textTransform="uppercase"></TextView>
+                <Label text="&#xf057;" *ngIf="players.length > 2" row="0" col="6" colSpan="1" verticalAlignment="center"
+                    horizontalAlignment="left" (tap)="removePlayer(i)" class="button-icon list-large-item font-awesome"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+
+    <FlexboxLayout row="1" col="1" colSpan="4" flexDirection="row">
+        <Button text="&#xf234;" [isEnabled]="players.length < 12" class="font-awesome button" (tap)="addPlayer()"></Button>
+        <Button text="PLAY !" [isEnabled]="playersValid()" (tap)="launchGame()" class="button"></Button>
+    </FlexboxLayout>
+</GridLayout>

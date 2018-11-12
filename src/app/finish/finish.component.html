@@ -1,0 +1,20 @@
+<ActionBar title="Traveller" class="action-bar">
+    <StackLayout orientation="horizontal">
+        <Label text="TRAVELLER &#xf0ac;" class="title font-awesome"></Label>
+    </StackLayout>
+</ActionBar>
+
+<GridLayout rows="*, 60" columns="*, *, *, *, *, *" class="page">
+
+    <ListView row="0" col="1" colSpan="4" [items]="players" separatorColor="transparent" class="list-player">
+        <ng-template let-player="item" let-i="index">
+            <GridLayout rows="*" columns="*, * , * , * , * ,*">
+                <Label [text]="getPosition(player)" row="0" col="2" colSpan="1" verticalAlignment="center"
+                    horizontalAlignment="left" class="label list-large-item"></Label>
+                <Label [text]="player.name" row="0" col="3" colSpan="3" verticalAlignment="center" horizontalAlignment="left"
+                    class="label list-large-item"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+
+</GridLayout>

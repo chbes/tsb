@@ -1,0 +1,25 @@
+<ActionBar title="Traveller" class="action-bar">
+    <StackLayout orientation="horizontal">
+        <Label text="TRAVELLER &#xf0ac;" class="title font-awesome"></Label>
+    </StackLayout>
+</ActionBar>
+
+<GridLayout rows="*, 60" columns="*, *, *, *, *, *" class="page">
+
+    <ListView row="0" col="1" colSpan="4" [items]="players" separatorColor="transparent">
+        <ng-template let-player="item" let-i="index">
+            <GridLayout rows="*" columns="*, * , * , * , * ,*">
+                <Label [text]="player.name" row="0" col="0" colSpan="4" verticalAlignment="center" horizontalAlignment="left"
+                    class="label list-large-item"></Label>
+                <TextView row="0" col="4" colSpan="2" hint="score" class="input list-large-item" [(ngModel)]="marks[i]"
+                    secure="false" keyboardType="number" returnKeyType="next" autocorrect="false" maxLength="3"
+                    verticalAlignment="center" horizontalAlignment="left"></TextView>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+
+    <FlexboxLayout row="1" col="1" colSpan="4" flexDirection="row">
+        <Button text="&#xf00d;" class="button font-awesome" (tap)="cancel()"></Button>
+        <Button text="&#xf00c;" class="button font-awesome" [isEnabled]="marksValid()" (tap)="addNewRound()"></Button>
+    </FlexboxLayout>
+</GridLayout>

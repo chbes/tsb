@@ -1,0 +1,113 @@
+@import '~nativescript-theme-core/css/core.light.css';
+
+$main-color:rgb(56, 173, 169);
+$second-color: rgb(220, 221, 225);
+$text-color: rgb(47, 54, 64);
+$gold: rgb(255,207,64);
+$silver: rgb(189, 195, 199);
+
+/* FontAwesome */
+
+.font-awesome {
+    font-family: "FontAwesome";
+}
+
+.page {
+    background: $second-color;
+    color: $text-color;
+}
+
+.action-bar {
+    background: $main-color;
+    color: $text-color;
+    text-align: center;
+}
+
+/* List */
+
+.list-header {
+    background: $main-color;
+}
+
+.list-center {
+    text-align: center;
+}
+
+.list-item {
+    margin: 7 0;
+    width: 100%;
+}
+
+.list-large-item {
+    margin: 10 0;
+}
+
+.list-player {
+    margin: 30 0;
+}
+
+/* Text */
+
+.title {
+    color: $text-color;
+    font-size: 22;
+    font-weight: 600;
+    width: 100%;
+}
+
+.label {
+    color: $text-color;
+    font-size: 20;
+    font-weight: 500;
+}
+
+.input {
+    color: $text-color;
+    placeholder-color: transparentize($text-color,0.7);
+    font-size: 20;
+    font-weight: 500;
+}
+
+.icon {
+    font-size: 14;
+}
+
+.label-player {
+    margin-right: 7;
+}
+
+.label-score {
+    font-weight: 400;
+}
+
+.label-last-score {
+    font-weight: 500;
+}
+
+.leader {
+    color: $gold;
+}
+
+.co-leader {
+    color: $silver;
+}
+
+
+/* Button */
+
+.button {
+    background: $main-color;
+    color: $text-color;
+    font-size: 20;
+    font-weight: 700;
+    width: 100%;
+}
+
+.button:disabled {
+    background: transparentize($main-color,0.6);
+    color: transparentize($text-color,0.6);
+}
+
+.button-icon {
+    font-size: 18;
+}

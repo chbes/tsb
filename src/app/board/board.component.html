@@ -1,0 +1,33 @@
+<ActionBar title="Traveller" class="action-bar">
+    <StackLayout orientation="horizontal">
+        <Label text="TRAVELLER &#xf0ac;" class="title font-awesome"></Label>
+    </StackLayout>
+</ActionBar>
+
+<GridLayout rows="75, *, 60" columns="*, *, *, *, *, *" class="page">
+    <FlexboxLayout row="0" col="0" colSpan="6" flexDirection="row" class="list-center list-header">
+        <div *ngFor="let player of players">
+            <GridLayout rows="25,30,20" columns="*">
+                <Label [text]="player.leader?'&#xf521;':''" row="0" col="0" verticalAlignment="bottom" class="icon leader font-awesome"
+                    [ngClass]="{'co-leader': coLeader()}"></Label>
+                <Label [text]="player.name" row="1" col="0" verticalAlignment="center" class="label"></Label>
+                <Label [text]="player.starter?'&#xf111;':''" row="2" col="0" verticalAlignment="top" class="icon font-awesome"></Label>
+            </GridLayout>
+        </div>
+    </FlexboxLayout>
+
+    <ListView #lvrounds row="1" col="0" colSpan="6" [items]="rounds" [scrollToIndex]="rounds.length-1" class="list-center">
+        <ng-template let-round="item">
+            <FlexboxLayout flexDirection="row">
+                <div *ngFor="let score of round">
+                    <Label [text]="score" class="list-item label label-score" [ngClass]="{'label-last-score': lastRound(round)}"></Label>
+                </div>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView>
+
+    <FlexboxLayout row="2" col="1" colSpan="4" flexDirection="row">
+        <Button text="FINISH" class="button" (tap)="finish()"></Button>
+        <Button text="&#xf067;" class="button font-awesome" [nsRouterLink]="['/add']"></Button>
+    </FlexboxLayout>
+</GridLayout>
