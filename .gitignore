@@ -9,6 +9,7 @@
 /src/**/*.css
 .DS_Store
 **/*.log
+/image_tinker
 
 #VisualStudioCode
 .vscode
