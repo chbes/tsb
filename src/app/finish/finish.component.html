@@ -9,10 +9,10 @@
     <ListView row="0" col="1" colSpan="4" [items]="players" separatorColor="transparent" class="list-player">
         <ng-template let-player="item" let-i="index">
             <GridLayout rows="*" columns="*, * , * , * , * ,*">
-                <Label [text]="getPosition(player)" row="0" col="2" colSpan="1" verticalAlignment="center"
-                    horizontalAlignment="left" class="label list-large-item"></Label>
+                <Label [text]="'N°'+getPosition(player)" row="0" col="2" colSpan="1" verticalAlignment="center"
+                    horizontalAlignment="left" class="label label-finish list-large-item"></Label>
                 <Label [text]="player.name" row="0" col="3" colSpan="3" verticalAlignment="center" horizontalAlignment="left"
-                    class="label list-large-item"></Label>
+                    class="label label-finish list-large-item"></Label>
             </GridLayout>
         </ng-template>
     </ListView>
