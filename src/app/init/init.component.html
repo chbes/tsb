@@ -15,13 +15,13 @@
                     secure="false" keyboardType="url" returnKeyType="next" autocorrect="false" maxLength="10"
                     verticalAlignment="center" textTransform="uppercase"></TextView>
                 <Label text="&#xf057;" *ngIf="players.length > 2" row="0" col="6" colSpan="1" verticalAlignment="center"
-                    horizontalAlignment="left" (tap)="removePlayer(i)" class="button-icon list-large-item font-awesome"></Label>
+                    horizontalAlignment="left" (tap)="removePlayer(i)" class="button-icon list-large-item fa"></Label>
             </GridLayout>
         </ng-template>
     </ListView>
 
     <FlexboxLayout row="1" col="1" colSpan="4" flexDirection="row">
-        <Button text="&#xf234;" [isEnabled]="players.length < 12" class="font-awesome button" (tap)="addPlayer()"></Button>
+        <Button text="&#xf234;" [isEnabled]="players.length < 12" class="button fa" (tap)="addPlayer()"></Button>
         <Button text="PLAY !" [isEnabled]="playersValid()" (tap)="launchGame()" class="button"></Button>
     </FlexboxLayout>
 </GridLayout>

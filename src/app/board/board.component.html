@@ -8,10 +8,10 @@
     <FlexboxLayout row="0" col="0" colSpan="6" flexDirection="row" class="list-center list-header">
         <div *ngFor="let player of players">
             <GridLayout rows="25,30,20" columns="*">
-                <Label [text]="player.leader?'&#xf521;':''" row="0" col="0" verticalAlignment="bottom" class="icon leader font-awesome"
+                <Label [text]="player.leader?'&#xf521;':''" row="0" col="0" verticalAlignment="bottom" class="icon leader fa"
                     [ngClass]="{'co-leader': coLeader()}"></Label>
                 <Label [text]="player.name" row="1" col="0" verticalAlignment="center" class="label"></Label>
-                <Label [text]="player.starter?'&#xf111;':''" row="2" col="0" verticalAlignment="top" class="icon font-awesome"></Label>
+                <Label [text]="player.starter?'&#xf111;':''" row="2" col="0" verticalAlignment="top" class="icon fa"></Label>
             </GridLayout>
         </div>
     </FlexboxLayout>
@@ -28,6 +28,6 @@
 
     <FlexboxLayout row="2" col="1" colSpan="4" flexDirection="row">
         <Button text="FINISH" class="button" (tap)="finish()"></Button>
-        <Button text="&#xf067;" class="button font-awesome" [nsRouterLink]="['/add']"></Button>
+        <Button text="&#xf067;" class="button fa" [nsRouterLink]="['/add']"></Button>
     </FlexboxLayout>
 </GridLayout>
