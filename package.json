@@ -1,6 +1,6 @@
 {
     "nativescript": {
-        "id": "org.nativescript.tsb",
+        "id": "com.chbes.tsb",
         "tns-android": {
             "version": "4.2.0"
         },
