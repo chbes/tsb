@@ -3,6 +3,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { Player } from "../services/player";
 import { GameService } from "../services/game.service";
+import { confirm } from "tns-core-modules/ui/dialogs"
 
 @Component({
     selector: "ns-init",
@@ -42,10 +43,12 @@ export class InitComponent implements OnInit {
 
     launchGame(): void {
         if (this.playersValid()) {
-            this.gameService.setPlayers(this.players);
-            this.routerExtensions.navigate(["/board"], { clearHistory: true });
-        } else {
-            console.log("Players names are invalid !")
+            confirm({ title: "Launch the game ?", cancelButtonText: "NO", okButtonText: "YES" }).then(confirm => {
+                if (confirm) {
+                    this.gameService.setPlayers(this.players);
+                    this.routerExtensions.navigate(["/board"], { clearHistory: true });
+                }
+            });
         }
     }
 }

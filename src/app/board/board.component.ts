@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { GameService } from "../services/game.service";
 import { Player } from "../services/player";
 import { RouterExtensions } from "nativescript-angular/router";
+import { confirm } from "tns-core-modules/ui/dialogs"
 
 @Component({
     selector: "ns-board",
@@ -12,8 +13,6 @@ import { RouterExtensions } from "nativescript-angular/router";
 export class BoardComponent implements OnInit {
     private players: Array<Player>
     private rounds: Array<Array<number>>;
-
-    @ViewChild('lvrounds') listViewElem: ElementRef;
 
     constructor(private gameService: GameService, private routerExtensions: RouterExtensions) { }
 
@@ -35,7 +34,11 @@ export class BoardComponent implements OnInit {
     }
 
     finish(): void {
-        this.routerExtensions.navigate(["/finish"], { clearHistory: true });
+        confirm({ title: "Game is hover ?", message: "", cancelButtonText: "NO", okButtonText: "YES" }).then(confirm => {
+            if (confirm) {
+                this.routerExtensions.navigate(["/finish"], { clearHistory: true });
+            }
+        });
     }
 
 }

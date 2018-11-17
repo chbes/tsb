@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { GameService } from "../services/game.service";
 import { Player } from "../services/player";
 import { RouterExtensions } from "nativescript-angular/router";
+import { confirm } from "tns-core-modules/ui/dialogs"
 
 @Component({
     selector: "ns-add",
@@ -31,10 +32,12 @@ export class AddComponent implements OnInit {
 
     addNewRound(): void {
         if (this.marksValid()) {
-            this.gameService.addRound(this.marks)
-            this.routerExtensions.navigate(["/board"], { clearHistory: true });
-        } else {
-            console.log("Marks are invalid !")
+            confirm({ title: "Marks are right ?", message: "", cancelButtonText: "NO", okButtonText: "YES" }).then(confirm => {
+                if (confirm) {
+                    this.gameService.addRound(this.marks)
+                    this.routerExtensions.navigate(["/board"], { clearHistory: true });
+                }
+            });
         }
     }
 
