@@ -16,7 +16,7 @@
         </div>
     </FlexboxLayout>
 
-    <ListView #lvrounds row="1" col="0" colSpan="6" [items]="rounds" [scrollToIndex]="rounds.length-1" class="list-center">
+    <ListView row="1" col="0" colSpan="6" [items]="rounds" [scrollToIndex]="rounds.length-1" class="list-center">
         <ng-template let-round="item">
             <FlexboxLayout flexDirection="row">
                 <div *ngFor="let score of round">
